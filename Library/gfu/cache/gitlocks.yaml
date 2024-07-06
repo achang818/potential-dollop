@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: com.spoiledcat.git.ui:Unity.VersionControl.Git:GitLocksCache
   cacheType: 7
-  lastUpdatedAtString: 2024-07-03T12:30:09.573+08:00
-  initializedAtString: 2024-07-03T10:44:02.862+08:00
+  lastUpdatedAtString: 2024-07-06T14:27:47.716+08:00
+  initializedAtString: 2024-07-06T13:35:13.288+08:00
   gitLocks: []

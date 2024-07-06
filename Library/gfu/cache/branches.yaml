@@ -13,11 +13,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: com.spoiledcat.git.ui:Unity.VersionControl.Git:BranchesCache
   cacheType: 2
-  lastUpdatedAtString: 2024-07-03T12:30:06.556+08:00
-  initializedAtString: 2024-07-03T10:43:52.016+08:00
+  lastUpdatedAtString: 2024-07-06T14:50:40.324+08:00
+  initializedAtString: 2024-07-06T14:27:41.095+08:00
   localBranches: []
   remoteBranches:
   - name: origin/HEAD
+    tracking: '[None]'
+  - name: origin/main
     tracking: '[None]'
   remotes:
   - name: origin
@@ -36,9 +38,15 @@ MonoBehaviour:
     subKeys:
     - Values:
       - HEAD
+      - main
     subKeyValues:
     - Values:
       - name: HEAD
+        remote:
+          name: origin
+          url: https://github.com/achang818/potential-dollop.git
+        trackingBranch: 
+      - name: main
         remote:
           name: origin
           url: https://github.com/achang818/potential-dollop.git

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: com.spoiledcat.git.ui:Unity.VersionControl.Git:RepositoryInfoCache
   cacheType: 1
-  lastUpdatedAtString: 2024-07-03T12:04:58.298+08:00
-  initializedAtString: 2024-07-03T10:43:50.781+08:00
+  lastUpdatedAtString: 2024-07-06T14:50:40.785+08:00
+  initializedAtString: 2024-07-06T13:35:09.825+08:00
   currentGitRemote:
     name: origin
     url: https://github.com/achang818/potential-dollop.git
