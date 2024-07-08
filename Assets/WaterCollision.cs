@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class WaterCollision : MonoBehaviour
 {
     public TextMeshProUGUI messageText; // Reference to the UI Text element
     public string message = "Click <Space>";
+    private bool collidingWithWater = false; 
 
     void Start()
     {
@@ -26,6 +28,7 @@ public class WaterCollision : MonoBehaviour
                 messageText.text = message;
                 messageText.gameObject.SetActive(true);
             }
+            collidingWithWater = true;
         }
     }
 
@@ -37,6 +40,15 @@ public class WaterCollision : MonoBehaviour
             {
                 messageText.gameObject.SetActive(false);
             }
+            collidingWithWater = false;
+        }
+    }
+
+    void Update()
+    {
+        if (collidingWithWater && Input.GetKeyDown(KeyCode.Space)) 
+        {
+            SceneManager.LoadScene("Scene2");
         }
     }
 }
