@@ -18,10 +18,12 @@ public class UnderwaterMovement : MonoBehaviour
     private float dashTime;
     private float dashCooldownTime;
     private bool collidingWithWater = false;
+    private SpriteRenderer spriteRenderer;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         // Initial check to see if the player starts inside the water
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 0.1f);
         foreach (var collider in colliders)
@@ -56,7 +58,12 @@ public class UnderwaterMovement : MonoBehaviour
             if(collidingWithWater) {
                 moveY = Input.GetAxisRaw("Vertical");
             }
-
+            if(moveX > 0) {
+                spriteRenderer.flipX = false;
+            }
+            if(moveX < 0) {
+                spriteRenderer.flipX = true;
+            }
             movement = new Vector2(moveX, moveY).normalized;
         }
 
