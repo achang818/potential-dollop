@@ -7,10 +7,20 @@ public class Bullet : MonoBehaviour
     private bool hasBeenCollected = false;
     private Rigidbody2D rb;
     private bool collided = false;
+    private Transform stuckToMob;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+    }
+
+    void Update()
+    {
+        if (collided && stuckToMob != null)
+        {
+            // Ensure the spear keeps its initial rotation
+            transform.rotation = Quaternion.Euler(0, 0, transform.rotation.eulerAngles.z);
+        }
     }
 
     void FixedUpdate()
@@ -29,6 +39,16 @@ public class Bullet : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
+        if (collision.gameObject.CompareTag("Mob") && !collided)
+        {
+            // Stick the spear to the mob
+            rb.velocity = Vector2.zero;
+            rb.isKinematic = true; // Make the spear stop moving
+            transform.parent = collision.transform; // Make the spear a child of the mob
+            stuckToMob = collision.transform;
+            collided = true;
+            return;
+        }
         if(!collision.gameObject.CompareTag("Bullet")) {
             collided = true;
             rb.gravityScale = 0f;

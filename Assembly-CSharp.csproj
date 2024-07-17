@@ -71,6 +71,7 @@
     <Compile Include="Assets\TopDown 2D RPG BE3\ReadMe\Scripts\ReadmeBE3.cs" />
     <Compile Include="Assets\TopDownMovementScript.cs" />
     <Compile Include="Assets\WaterCollision.cs" />
+    <Compile Include="Assets\FishAI.cs" />
     <Compile Include="Assets\Bullet.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -7,6 +7,7 @@ TagManager:
   - Water
   - Bullet
   - Wall
+  - Mob
   layers:
   - Default
   - TransparentFX

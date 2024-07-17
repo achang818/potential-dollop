@@ -11,6 +11,7 @@ public class PlayerShooting : MonoBehaviour
     private Rigidbody2D rb;
     public float ammo = 1f;
     Vector2 mousePosition;
+    public LayerMask wallLayer;
 
     void Start()
     {
@@ -59,6 +60,10 @@ public class PlayerShooting : MonoBehaviour
     }
 
     void Shoot() {
+        if (IsTouchingWallInShootDirection())
+        {
+            return; // Exit shooting function
+        }
         Vector2 lookDir = mousePosition - rb.position;
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
         firePoint.rotation = Quaternion.Euler(0, 0, angle);;
@@ -66,5 +71,36 @@ public class PlayerShooting : MonoBehaviour
         Rigidbody2D rb2d = bullet.GetComponent<Rigidbody2D>();
         rb2d.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
         ammo--;
+    }
+
+    bool IsTouchingWallInShootDirection()
+    {
+        // Get mouse position in world coordinates
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePosition.z = 0f; // Ensure z is 0 for 2D
+
+        // Calculate direction towards mouse position
+        Vector2 direction = (mousePosition - transform.position).normalized;
+
+        // Define ray directions to check (left, right, up, down)
+        Vector2[] directions = { Vector2.left, Vector2.right, Vector2.up, Vector2.down };
+        foreach (Vector2 dir in directions)
+        {
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, dir, 1f, wallLayer); // Adjust the distance as needed
+            if (hit.collider != null)
+            {
+                // Check if the direction we want to shoot matches any touching wall direction
+                if ((dir == Vector2.left && direction.x < 0) ||
+                    (dir == Vector2.right && direction.x > 0) ||
+                    (dir == Vector2.up && direction.y > 0) ||
+                    (dir == Vector2.down && direction.y < 0))
+                {
+                    Debug.Log("Cannot shoot in direction of touching wall: " + hit.collider.gameObject.name);
+                    return true; // Player is touching a wall in the shoot direction
+                }
+            }
+        }
+
+        return false; // Player is not touching any wall in the shoot direction
     }
 }
