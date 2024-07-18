@@ -64,15 +64,16 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.32f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\CharacterController2D.cs" />
-    <Compile Include="Assets\PlayerShooting.cs" />
-    <Compile Include="Assets\SwimMovement.cs" />
-    <Compile Include="Assets\PlatformerMovement.cs" />
+    <Compile Include="Assets\Scripts\SwimMovement.cs" />
     <Compile Include="Assets\TopDown 2D RPG BE3\ReadMe\Scripts\ReadmeBE3.cs" />
-    <Compile Include="Assets\TopDownMovementScript.cs" />
-    <Compile Include="Assets\WaterCollision.cs" />
-    <Compile Include="Assets\FishAI.cs" />
-    <Compile Include="Assets\Bullet.cs" />
+    <Compile Include="Assets\Scripts\ItemData.cs" />
+    <Compile Include="Assets\Scripts\Bullet.cs" />
+    <Compile Include="Assets\Scripts\CharacterController2D.cs" />
+    <Compile Include="Assets\Scripts\FishAI.cs" />
+    <Compile Include="Assets\Scripts\PlayerShooting.cs" />
+    <Compile Include="Assets\Scripts\TopDownMovementScript.cs" />
+    <Compile Include="Assets\Scripts\WaterCollision.cs" />
+    <Compile Include="Assets\Scripts\PlatformerMovement.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

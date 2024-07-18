@@ -21,7 +21,7 @@ public class FishAI : MonoBehaviour
     public float normalGravity = 3f;       // Gravity when not in water
     public float waterGravity = 0f;      // Gravity when in water
     private float health = 2f;
-    public float immunityDuration = 2f; // Duration of immunity frames in seconds
+    public float immunityDuration = .5f; // Duration of immunity frames in seconds
     private bool isImmune = false; // Indicates if the object is currently immune
 
     public float dashSpeed = 5f; // Speed during dash
@@ -202,12 +202,12 @@ public class FishAI : MonoBehaviour
         if (collision.gameObject.CompareTag("Bullet") && !isImmune)
         {
             TakeDamage();
-            if (health == 0)
+            if (health <= 0)
             {
                 rb.gravityScale = -2f;
             }
         }
-        if (collision.gameObject.CompareTag("Player") && health == 0)
+        if (collision.gameObject.CompareTag("Player") && health <= 0)
         {
             Destroy(gameObject);
         }
